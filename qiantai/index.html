@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
+	<!-- <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script> -->
+	<script src='js/jquery.js'></script>
 	<style>
 	*{
 		padding:0px;margin:0px;
@@ -62,12 +64,22 @@
 	.slide div{
 		width:120px;height:50px;text-align: center;line-height:50px;position: relative;font-size:15px;
 	}
+	.slide div a{
+		text-decoration: none;display: inline-block;width:100%;
+	}
 	.box1{
-		background-color: white;color:black;left:120px;top:150px;
+		left:120px;top:150px;
 	}
 	.box2{
-		background-color: #CF9963;color:white;left:250px;top:100px;
+		left:250px;top:100px;
+	}	
+	.box1 a{
+		color:black;background-color: white;
 	}
+	.box2 a{
+		color:white;background-color: #CF9963;
+	}
+
 	</style>
 </head>
 <body>
@@ -89,14 +101,31 @@
 	<div class='slide'>
 		<h1>WE BELIEVE MAKEUP IS POWER NEVER DIM YOUR LIGHT</h1>
 		<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis eum iriure dolor in hendrerit in vulputate.</p>
-		<div class='box1'>Shop Now</div>
-		<div class='box2'>More Detail</div>
+		<div class='box1'><a href="#">Shop Now</a></div>
+		<div class='box2'><a href='#'>More Detail</a></div>
 	</div>
 	<div class='demo'>
 		111
 	</div>
 </body>
 </html>
+
 <script>
-	document.write("12312");
+	// document.write("12312"); first code for yue
+	// -------------------------------------------
+	// 要求是当鼠标经过div时  div变色  当时脑抽 还以为有两种方法 写了第一种后发现是$(document)  应该是指定区域 $(".box1 a")
+	// $(document).mousemove(function(e){
+	// 	$(".box1 a").css({"background-color":"#1D191A","color":"white"});
+	// });
+	// -------------------------------------------
+	$(".box1 a").mousemove(function(){
+		$(this).css({"background-color":"#1D191A","color":"white"});
+	}).mouseout(function(){
+		$(this).css({"background-color":"white","color":"black"});
+	});
+	$(".box2 a").mousemove(function(){
+		$(this).css({"background-color":"#1D191A","color":"white"});
+	}).mouseout(function(){
+		$(this).css({"background-color":"#CF9963","color":"white"});
+	});
 </script>
